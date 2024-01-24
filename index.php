@@ -4,6 +4,9 @@
 
 <?php
 
+session_start(); // on démarre la session
+
+
 
 
 include 'objet.php'; // on importe la classe objet
@@ -36,6 +39,8 @@ $item = [
         //var_dump($_POST);
         $justePrix = new JustePrix($item[$_POST['nombre']], $_POST['nombre']);
         $justePrix->comparaison();
+        $justePrix->NombreCoups();
+        
         
 
         exit; // Termine l'exécution du script après avoir renvoyé la réponse AJAX
@@ -55,6 +60,9 @@ $item = [
         $justePrix->restart();
 
         $justePrix->HTML();
+
+        $_SESSION['nombreCoups']=0;
+
         
         
     }

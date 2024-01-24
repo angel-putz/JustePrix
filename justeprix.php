@@ -10,6 +10,8 @@ class JustePrix { // on crée une classe justePrix qui va contenir les méthodes
     public $nombreChoisi;
     public $resultat;
     public $name;
+    public $nombreCoups;
+    public $point;
     
 
     public function __construct($randomItem = null , $name = null) { // on peut mettre des valeurs ou rien du tout pour les paramètres
@@ -47,6 +49,8 @@ function refreshPage() {
         <h1>Bienvenue au JustePrix</h1>
 
         <h2>Le but du jeu est de trouver le juste prix de l'objet</h2>
+        <p>Pour gagner le plus de points possible, il faut trouver le juste prix en un minimum de coups</p>
+        <p>Le nombre de coups est indiqué </p>
 
         </div>
 
@@ -55,6 +59,9 @@ function refreshPage() {
 
         <?php
     }
+
+
+
 
     public function displayForm() { // permet d'afficher le formulaire de l'objet justePrix
 ?>  
@@ -72,23 +79,76 @@ function refreshPage() {
 
     public function comparaison() { // permet de comparer le prix entré par l'utilisateur avec le prix de l'objet 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            
+
+
+
             if (empty($_POST['guess'])) { // si le champ est vide on affiche un message d'erreur
                 echo "Veuillez entrer un prix";
+
+                
+
             } elseif ($_POST['guess'] < $this->randomItem->price) { // si le prix entré est inférieur au prix de l'objet on affiche un message
                 ?> <div class="rouge"> <?php
                 echo "C'est plus !";
+                $nombreCoups=$_SESSION['nombreCoups']++;
+                echo '<br>';
+                echo "Vous avez fait " . $_SESSION["nombreCoups"] . " coups ! ";
+
                 ?> </div> <?php
             } elseif ($_POST['guess'] > $this->randomItem->price) { // si le prix entré est supérieur au prix de l'objet on affiche un message
                 ?> <div class="rouge"> <?php
                 echo "C'est moins !";
+                echo '<br>';
+                $nombreCoups=$_SESSION['nombreCoups']++;
+                
+                
+                echo "Vous avez fait " . $_SESSION["nombreCoups"] . " coups ! ";
                 ?> </div> <?php
             } else { // si le prix entré est égal au prix de l'objet on affiche un message de victoire
                ?> <div class="vert"> <?php
+
+               $nombreCoups=$_SESSION['nombreCoups']++;
+              
                 echo "Vous avez trouvé le juste prix ! pour " . $this->randomItem->price . "€ ! ";
+                echo '<br>';
+                echo "Vous avez trouvé le juste prix en " . $_SESSION["nombreCoups"] . " coups ! ";
+                echo '<br>';
+                echo "Vous avez gagné " . $this->point . " points ! ";
                ?> </div><?php
             }
+
+
     }   
 }
+
+public function NombreCoups () { 
+    
+    $this->nombreCoups = $nombreCoups;
+
+    
+
+
+
+
+    if ( $nombreCoups == 1) {
+        $point = 10;
+    } elseif ( $nombreCoups == 2) {
+        $point = 8;
+    } elseif ( $nombreCoups == 3) {
+        $point = 6;
+    } elseif ( $nombreCoups == 4) {
+        $point = 4;
+    } elseif ( $nombreCoups == 5) {
+        $point = 2;
+    } elseif ( $nombreCoups == 6) {
+        $point = 1;
+    } else {
+        $point = 0;
+    }
+}
+
 
     public function Ajax() {
 ?>  
