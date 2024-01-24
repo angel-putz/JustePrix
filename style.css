@@ -1,0 +1,21 @@
+.fond-juste-prix{
+    background-image: url(juste-prix.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+.gras{
+    font-weight: bold;
+}
+
+.rouge{
+    color: red;
+}
+
+.vert{
+    color: green;
+}
+
