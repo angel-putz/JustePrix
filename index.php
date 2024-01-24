@@ -31,7 +31,7 @@ $item = [
 ]; // on crée un tableau qui contient les objets du jeu
 
 
-
+// INVERSE LE IF POUR METTRE LE HTML EN HAUT 
  
 
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -40,9 +40,6 @@ $item = [
         $justePrix = new JustePrix($item[$_POST['nombre']], $_POST['nombre']);
         $justePrix->comparaison();
         $justePrix->NombrePoint();
-
-        
-        
 
         exit; // Termine l'exécution du script après avoir renvoyé la réponse AJAX
     } else {

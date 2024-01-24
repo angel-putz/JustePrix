@@ -38,20 +38,46 @@ function refreshPage() {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=400, initial-scale=1.0">
-            <link  type ="css" rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="style.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
             <title>JustePrix</title>
         </head>
         <body>
         
         <div class="fond-juste-prix">
+            <div class ="ecriture-blanche">
 
         <h1>Bienvenue au JustePrix</h1>
 
         <h2>Le but du jeu est de trouver le juste prix de l'objet</h2>
         <p>Pour gagner le plus de points possible, il faut trouver le juste prix en un minimum de coups</p>
         <p>Le nombre de coups est indiqué </p>
+        <p>Les points baissent en fonction du nombre de coups</p>
 
+
+        <div class="points">
+        <h3>Les points sont calculés comme suit :</h3>
+        <p>10 points pour 1 coup</p>
+        <p>8 points pour 2 coups</p>
+        <p>6 points pour 3 coups</p>
+        <p>4 points pour 4 coups</p>
+        <p>2 points pour 5 coups</p>
+        <p>1 point pour 6 coups</p>
+        <p>0 point pour 7 coups et plus</p>
+        </div>
+
+        
+
+        <div class="regles">
+        <h3>Les règles du jeu sont les suivantes :</h3>
+        <p>Vous devez entrer un prix dans le champ prévu à cet effet</p>
+        <p>Si le prix entré est inférieur au juste prix, le jeu vous indiquera "C'est plus !"</p>
+        <p>Si le prix entré est supérieur au juste prix, le jeu vous indiquera "C'est moins !"</p>
+        <p>Si le prix entré est égal au juste prix, le jeu vous indiquera "Vous avez trouvé le juste prix !"</p>
+        <p>Vous pouvez recommencer la partie en cliquant sur le bouton "Recommencer la partie"</p>
+        </div>
+
+        </div>
         </div>
 
         </body>
@@ -128,11 +154,6 @@ function refreshPage() {
 
 public function NombrePoint () { 
 
-    
-
-
-
-
     if ( $_SESSION["nombreCoups"] == 1) {
         $_SESSION["point"] = 10;
     } elseif ( $_SESSION["nombreCoups"] == 2) {
@@ -148,8 +169,6 @@ public function NombrePoint () {
     } else {
         $_SESSION["point"] = 0;
     }
-
-
 }
 
 
