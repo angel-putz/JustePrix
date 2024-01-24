@@ -78,6 +78,8 @@ function refreshPage() {
     }
 
     public function comparaison() { // permet de comparer le prix entré par l'utilisateur avec le prix de l'objet 
+
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             
@@ -92,7 +94,7 @@ function refreshPage() {
             } elseif ($_POST['guess'] < $this->randomItem->price) { // si le prix entré est inférieur au prix de l'objet on affiche un message
                 ?> <div class="rouge"> <?php
                 echo "C'est plus !";
-                $nombreCoups=$_SESSION['nombreCoups']++;
+                $_SESSION['nombreCoups']++;
                 echo '<br>';
                 echo "Vous avez fait " . $_SESSION["nombreCoups"] . " coups ! ";
 
@@ -101,7 +103,7 @@ function refreshPage() {
                 ?> <div class="rouge"> <?php
                 echo "C'est moins !";
                 echo '<br>';
-                $nombreCoups=$_SESSION['nombreCoups']++;
+                $_SESSION['nombreCoups']++;
                 
                 
                 echo "Vous avez fait " . $_SESSION["nombreCoups"] . " coups ! ";
@@ -109,13 +111,14 @@ function refreshPage() {
             } else { // si le prix entré est égal au prix de l'objet on affiche un message de victoire
                ?> <div class="vert"> <?php
 
-               $nombreCoups=$_SESSION['nombreCoups']++;
+               $_SESSION['nombreCoups']++;
               
                 echo "Vous avez trouvé le juste prix ! pour " . $this->randomItem->price . "€ ! ";
                 echo '<br>';
                 echo "Vous avez trouvé le juste prix en " . $_SESSION["nombreCoups"] . " coups ! ";
                 echo '<br>';
-                echo "Vous avez gagné " . $this->point . " points ! ";
+                echo "Vous avez gagné " . $_SESSION["point"] . " points ! ";
+                return $_SESSION["nombreCoups"];
                ?> </div><?php
             }
 
@@ -123,30 +126,30 @@ function refreshPage() {
     }   
 }
 
-public function NombreCoups () { 
-    
-    $this->nombreCoups = $nombreCoups;
+public function NombrePoint () { 
 
     
 
 
 
 
-    if ( $nombreCoups == 1) {
-        $point = 10;
-    } elseif ( $nombreCoups == 2) {
-        $point = 8;
-    } elseif ( $nombreCoups == 3) {
-        $point = 6;
-    } elseif ( $nombreCoups == 4) {
-        $point = 4;
-    } elseif ( $nombreCoups == 5) {
-        $point = 2;
-    } elseif ( $nombreCoups == 6) {
-        $point = 1;
+    if ( $_SESSION["nombreCoups"] == 1) {
+        $_SESSION["point"] = 10;
+    } elseif ( $_SESSION["nombreCoups"] == 2) {
+        $_SESSION["point"] = 8;
+    } elseif ( $_SESSION["nombreCoups"] == 3) {
+        $_SESSION["point"] = 6;
+    } elseif ( $_SESSION["nombreCoups"] == 4) {
+        $_SESSION["point"] = 4;
+    } elseif ( $_SESSION["nombreCoups"] == 5) {
+        $_SESSION["point"] = 2;
+    } elseif ( $_SESSION["nombreCoups"] == 6) {
+        $_SESSION["point"] = 1;
     } else {
-        $point = 0;
+        $_SESSION["point"] = 0;
     }
+
+
 }
 
 

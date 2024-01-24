@@ -39,7 +39,8 @@ $item = [
         //var_dump($_POST);
         $justePrix = new JustePrix($item[$_POST['nombre']], $_POST['nombre']);
         $justePrix->comparaison();
-        $justePrix->NombreCoups();
+        $justePrix->NombrePoint();
+
         
         
 
