@@ -1,29 +1,94 @@
-.fond-juste-prix{
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.fond-juste-prix {
     background-image: url(juste-prix.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-}
-
-.gras{
-    font-weight: bold;
-}
-
-.faux{
-    color: red;
-}
-
-.juste{
-    color: yellow;
-}
-
-.ecriture-blanche{
     color: white;
+    padding: 20px;
+
+}
+
+.milieu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ecriture-blanche {
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+h2, h3, p {
+    margin: 10px 0;
 }
 
 .points {
     font-weight: bold;
     color: white;
+}
 
+@media (min-width: 768px) {
+    .milieu {
+        flex-direction: column;
+    }
+
+    .ecriture-blanche {
+        margin-right: 20px;
+    }
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="submit"] {
+    padding: 10px;
+    margin: 5px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.fa {
+    margin-right: 5px;
+}
+
+.faux, .juste {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.faux {
+    color: red;
+}
+
+.juste {
+    color: yellow;
 }

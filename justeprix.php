@@ -22,13 +22,15 @@ class JustePrix { // on crée une classe justePrix qui va contenir les méthodes
 
     public function restart () { // permet de redémarrer le jeu
         ?>
-        <button onclick="refreshPage()">Estimation suivante</button>
+        <button onclick="refreshPage()" class="btn btn-primary">Estimation suivante</button>
 
 <script>
 function refreshPage() {
     location.reload();
 }
 </script>
+</div>
+</div>
 </div>
 <?php
     }
@@ -64,7 +66,7 @@ function refreshPage() {
         <p>1 point pour 7 coups  , 0 point pour 8 coups et plus</p>
         </div>
 
-        </div>
+        
         
 
         </body>
@@ -78,7 +80,7 @@ function refreshPage() {
 
     public function displayForm() { // permet d'afficher le formulaire de l'objet justePrix
 ?>  
-        
+        <div class = "milieu">
         <form id="justePrixForm" method="post">
             <input type ="hidden" name="nombre" value="<?= $this->name; ?>">
             <input type="text" name="guess" placeholder="Entrez votre prix">
