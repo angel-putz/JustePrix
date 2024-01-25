@@ -22,7 +22,7 @@ class JustePrix { // on crée une classe justePrix qui va contenir les méthodes
 
     public function restart () { // permet de redémarrer le jeu
         ?>
-        <button onclick="refreshPage()">Recommencer la partie</button>
+        <button onclick="refreshPage()">Estimation suivante</button>
 
 <script>
 function refreshPage() {
@@ -58,10 +58,10 @@ function refreshPage() {
 
         <div class="points">
         <h3>Les points sont calculés comme ceci :</h3>
-        <p>10 points pour 1 coup , 8 points pour 2 coups</p>
-        <p>6 points pour 3 coups , 4 points pour 4 coups</p>
-        <p>2 points pour 5 coups , 1 point pour 6 coups</p>
-        <p>0 point pour 7 coups et plus</p>
+        <p>10 points pour 1 coup , 10 points pour 2 coups</p>
+        <p>8 points pour 3 coups , 6 points pour 4 coups</p>
+        <p>4 points pour 5 coups , 2 point pour 6 coups</p>
+        <p>1 point pour 7 coups  , 0 point pour 8 coups et plus</p>
         </div>
 
         </div>
@@ -108,7 +108,7 @@ function refreshPage() {
                 
 
             } elseif ($_POST['guess'] < $this->randomItem->price) { // si le prix entré est inférieur au prix de l'objet on affiche un message
-                ?> <div class="rouge"> <?php
+                ?> <div class="faux"> <?php
                 echo "C'est plus !";
                 $_SESSION['nombreCoups']++;
                 echo '<br>';
@@ -116,7 +116,7 @@ function refreshPage() {
 
                 ?> </div> <?php
             } elseif ($_POST['guess'] > $this->randomItem->price) { // si le prix entré est supérieur au prix de l'objet on affiche un message
-                ?> <div class="rouge"> <?php
+                ?> <div class="faux"> <?php
                 echo "C'est moins !";
                 echo '<br>';
                 $_SESSION['nombreCoups']++;
@@ -125,7 +125,7 @@ function refreshPage() {
                 echo "Vous avez fait " . $_SESSION["nombreCoups"] . " coups ! ";
                 ?> </div> <?php
             } else { // si le prix entré est égal au prix de l'objet on affiche un message de victoire
-               ?> <div class="vert"> <?php
+               ?> <div class="juste"> <?php
 
                $_SESSION['nombreCoups']++;
               

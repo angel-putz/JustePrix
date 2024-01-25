@@ -10,12 +10,12 @@
     font-weight: bold;
 }
 
-.rouge{
+.faux{
     color: red;
 }
 
-.vert{
-    color: green;
+.juste{
+    color: yellow;
 }
 
 .ecriture-blanche{
@@ -25,4 +25,5 @@
 .points {
     font-weight: bold;
     color: white;
+
 }
