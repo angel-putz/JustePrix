@@ -29,6 +29,7 @@ function refreshPage() {
     location.reload();
 }
 </script>
+</div>
 <?php
     }
 
@@ -40,6 +41,7 @@ function refreshPage() {
             <meta name="viewport" content="width=400, initial-scale=1.0">
             <link rel="stylesheet" href="style.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
             <title>JustePrix</title>
         </head>
         <body>
@@ -47,38 +49,23 @@ function refreshPage() {
         <div class="fond-juste-prix">
             <div class ="ecriture-blanche">
 
-        <h1>Bienvenue au JustePrix</h1>
+        <h2>Bienvenue au JustePrix</h2>
 
-        <h2>Le but du jeu est de trouver le juste prix de l'objet</h2>
+        <h3>Le but du jeu est de trouver le juste prix de l'objet</h3>
         <p>Pour gagner le plus de points possible, il faut trouver le juste prix en un minimum de coups</p>
-        <p>Le nombre de coups est indiqué </p>
-        <p>Les points baissent en fonction du nombre de coups</p>
+        <p>Le nombre de coups est indiqué et les points baissent en fonction du nombre de coups</p>
 
 
         <div class="points">
-        <h3>Les points sont calculés comme suit :</h3>
-        <p>10 points pour 1 coup</p>
-        <p>8 points pour 2 coups</p>
-        <p>6 points pour 3 coups</p>
-        <p>4 points pour 4 coups</p>
-        <p>2 points pour 5 coups</p>
-        <p>1 point pour 6 coups</p>
+        <h3>Les points sont calculés comme ceci :</h3>
+        <p>10 points pour 1 coup , 8 points pour 2 coups</p>
+        <p>6 points pour 3 coups , 4 points pour 4 coups</p>
+        <p>2 points pour 5 coups , 1 point pour 6 coups</p>
         <p>0 point pour 7 coups et plus</p>
         </div>
 
+        </div>
         
-
-        <div class="regles">
-        <h3>Les règles du jeu sont les suivantes :</h3>
-        <p>Vous devez entrer un prix dans le champ prévu à cet effet</p>
-        <p>Si le prix entré est inférieur au juste prix, le jeu vous indiquera "C'est plus !"</p>
-        <p>Si le prix entré est supérieur au juste prix, le jeu vous indiquera "C'est moins !"</p>
-        <p>Si le prix entré est égal au juste prix, le jeu vous indiquera "Vous avez trouvé le juste prix !"</p>
-        <p>Vous pouvez recommencer la partie en cliquant sur le bouton "Recommencer la partie"</p>
-        </div>
-
-        </div>
-        </div>
 
         </body>
         </html>
@@ -91,10 +78,13 @@ function refreshPage() {
 
     public function displayForm() { // permet d'afficher le formulaire de l'objet justePrix
 ?>  
+        
         <form id="justePrixForm" method="post">
             <input type ="hidden" name="nombre" value="<?= $this->name; ?>">
             <input type="text" name="guess" placeholder="Entrez votre prix">
             <input type="submit" value="Valider">
+
+           
 
 
         </form>
@@ -197,6 +187,7 @@ public function NombrePoint () {
         });
     });
     </script>
+    
 <?php
     }
 

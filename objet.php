@@ -10,7 +10,7 @@ class Objet {
     }
 
     public function display() { // permet d'afficher l'image de l'objet 
-        echo '<img src="' . $this->image . '" alt="Item image" style ="width: 400px; height: 400px;">';
+        echo '<img src="' . $this->image . '" alt="Item image" style ="width: 300px; height: 300px;">';
     }
 
 }

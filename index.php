@@ -49,6 +49,7 @@ $item = [
        //var_dump($randomItem);
        
         $justePrix = new JustePrix($item[$randomItem], $randomItem);
+        $justePrix->HTML();
         $justePrix->displayForm();
         $justePrix->Ajax();
         $item[$randomItem]->display();
@@ -57,7 +58,7 @@ $item = [
         <?php
         $justePrix->restart();
 
-        $justePrix->HTML();
+        
 
         $_SESSION['nombreCoups']=0;
 
