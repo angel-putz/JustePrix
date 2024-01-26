@@ -1,17 +1,10 @@
-
-
-
-
 <?php
 
-session_start(); // on démarre la session
+session_start();
 
+include 'objet.php';
 
-
-
-include 'objet.php'; // on importe la classe objet
-
-include 'justeprix.php'; // on importe la classe justePrix
+include 'justeprix.php';
 
 
 $item = [
@@ -28,10 +21,12 @@ $item = [
     "objet6"=>new Objet('objet6.png', 300),
 
     
-]; // on crée un tableau qui contient les objets du jeu
+];
 
 
-// INVERSE LE IF POUR METTRE LE HTML EN HAUT 
+
+
+
  
 
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -40,6 +35,8 @@ $item = [
         $justePrix = new JustePrix($item[$_POST['nombre']], $_POST['nombre']);
         $justePrix->comparaison();
         $justePrix->NombrePoint();
+          
+        
 
         exit; // Termine l'exécution du script après avoir renvoyé la réponse AJAX
     } else {
@@ -53,19 +50,11 @@ $item = [
         $justePrix->displayForm();
         $justePrix->Ajax();
         $item[$randomItem]->display();
-        ?>
-        <br>
-        <?php
+
         $justePrix->restart();
 
-        
-
-        $_SESSION['nombreCoups']=0;
-
-        
+        $_SESSION['nombreCoups'] = 0;
         
     }
-
-
 
 ?>
